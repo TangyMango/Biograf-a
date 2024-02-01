@@ -1,16 +1,18 @@
 import {View, Text, StyleSheet, SafeAreaView, ScrollView, Image} from 'react-native';
 import TextComponent from './components/TextComponents';
 
-//Otra forma de importar lo mismo y más, pero es menos limpio
-//import View from 'react-native';
-// import Text from 'react-native'; 
-
 const App = () => {
   return(
     <SafeAreaView style = {styles.container}>
       <ScrollView>
-        <Text style = {styles.title}> Mi biografía </Text>
-        <Image style = {styles.image} source={require('./assets/images/otaku hitori bocchi a chambear trabajar.png')} />
+        <Text style = {styles.title}> Mi Autobiografía </Text>
+        
+        {/* Contenedor del nombre */}
+        <View style = {styles.nameContainer}>
+          <Text style = {styles.name}>César Hernández Pescador </Text>
+        </View>
+        
+        <Image style = {styles.image} source={require('./assets/images/hitori_bocchi.png')} />
         <TextComponent/>
       </ScrollView>
     </SafeAreaView>
@@ -18,20 +20,44 @@ const App = () => {
 }
 
 const styles = StyleSheet.create({
+
   container: {
     flex: 1, 
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+  },
+
+  nameContainer: {
+    width: 200, // Establece el ancho en píxeles
+    backgroundColor: 'lightgray', // Solo para visualización
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'flex-end',
   },
 
   title:{
+    fontSize: 34,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    alignSelf: 'center',
+    marginBottom: 30,
+  },
+
+  name:{
     fontSize: 20,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    alignSelf: 'right',
+    marginBottom: 30,
+    position: 'absolute',
+    top: 0,
+    right: 20,
+    zIndex: 1,
   },
 
   image: {
-    width: 100,
-    height: 100
+    width: 200,
+    height: 200,
+    marginBottom: 20,
   },
 })
 
